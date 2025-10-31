@@ -1,23 +1,7 @@
 {
-    "name": "Interview",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "onCreateCommand": "mkdir -p $HOME/interview_sandbox",
-    "postCreateCommand": "bash scripts/fetch.sh",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "bash"
-            },
-            "tasks": {
-                "version": "2.0.0",
-                "tasks": [
-                    {
-                        "label": "Run Tests",
-                        "type": "shell",
-                        "command": "bash scripts/test.sh"
-                    }
-                ]
-            }
-        }
-    }
+  "name": "Interview",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "onCreateCommand": "mkdir -p $HOME/interview_sandbox",
+  "postAttachCommand": "bash scripts/fetch.sh || true",
+  "customizations": { "vscode": { "settings": { "terminal.integrated.defaultProfile.linux": "bash" } } }
 }
