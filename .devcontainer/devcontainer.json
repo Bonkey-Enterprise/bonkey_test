@@ -3,5 +3,6 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "onCreateCommand": "mkdir -p $HOME/interview_sandbox",
   "postAttachCommand": "bash scripts/fetch.sh || true",
+  "containerEnv": { "GITHUB_TOKEN": "", "GH_TOKEN": "" },
   "customizations": { "vscode": { "settings": { "terminal.integrated.defaultProfile.linux": "bash" } } }
 }
