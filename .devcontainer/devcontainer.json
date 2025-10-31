@@ -1,8 +1,27 @@
 {
   "name": "Interview",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "onCreateCommand": "mkdir -p $HOME/interview_sandbox",
-  "postAttachCommand": "bash scripts/fetch.sh || true",
-  "containerEnv": { "GITHUB_TOKEN": "", "GH_TOKEN": "" },
-  "customizations": { "vscode": { "settings": { "terminal.integrated.defaultProfile.linux": "bash" } } }
+
+  // Install GitHub CLI at build time (devcontainer feature)
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Make sure Codespaces' default token isn't used by gh
+  "containerEnv": {
+    "GITHUB_TOKEN": "",
+    "GH_TOKEN": ""
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
 }
